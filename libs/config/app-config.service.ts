@@ -54,7 +54,11 @@ export class AppConfigService {
 
     get kafka() {
         return {
-            broker: this.config.getOrThrow<string>('KAFKA_BROKER'),
+            clientId: this.config.getOrThrow<string>('KAFKA_CLIENT_ID'),
+            brokers: this.config
+                .getOrThrow<string>('KAFKA_BROKERS')
+                .split(','),
+            groupId: this.config.getOrThrow<string>('KAFKA_GROUP_ID'),
         };
     }
 }
