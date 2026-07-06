@@ -3,12 +3,16 @@ import { Module } from '@nestjs/common';
 import { GatewayController } from './gateway.controller';
 import { GatewayService } from './gateway.service';
 import { DatabaseModule } from 'app/persistence';
-import { ConfigModule } from 'libs/config';
+import { AppConfigModule } from 'libs/config';
 import { UsersModule } from './users/users.module';
+import { RedisModule } from 'libs/redis/src';
+import { QueueModule } from 'libs/queue/src';
 
 @Module({
   imports: [
-    ConfigModule,
+    AppConfigModule,
+    RedisModule,
+    QueueModule,
     DatabaseModule,
     UsersModule,
   ],
