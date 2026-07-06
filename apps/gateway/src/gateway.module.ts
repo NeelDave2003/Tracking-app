@@ -5,12 +5,14 @@ import { GatewayService } from './gateway.service';
 import { DatabaseModule } from 'app/persistence';
 import { ConfigModule } from 'libs/config';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [GatewayController],
   providers: [GatewayService],
